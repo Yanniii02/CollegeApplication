@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>College: <%= @college.name %></h1>
+<p>Location: <%= @college.location %></p>
+
+<h2>Departments:</h2>
+<ul>
+  <% @college.departments.each do |department| %>
+    <li>
+      <%= department.name %> - <%= department.location %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Laboratories:</h2>
+<ul>
+  <% @college.departments.each do |department| %>
+    <li><b>Department:</b> <%= department.name %> - <%= department.location %></li>
+    <ul>
+      <% department.laboratories.each do |lab| %>
+        <li><%= lab.name %> - <%= lab.location %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</ul>
+
+<div>
+  <%= link_to "Back to colleges", colleges_path %>
+</div>
+

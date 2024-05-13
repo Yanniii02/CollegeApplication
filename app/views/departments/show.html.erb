@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Department: <%= @department.name %></h1>
+<p>Location: <%= @department.location %></p>
+
+<h2>Laboratories:</h2>
+<ul>
+  <% @department.laboratories.each do |lab| %>
+    <li><%= lab.name %> - <%= lab.location %></li>
+  <% end %>
+</ul>
+
+<div>
+  <%= link_to "Edit this department", edit_department_path(@department) %> |
+  <%= link_to "Back to departments", departments_path %>
+  <%= button_to "Destroy this department", @department, method: :delete %>
+</div>
+

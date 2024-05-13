@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>College: <%= @college.name %></h1>
+<p>Location: <%= @college.location %></p>
+
+<% if @college.departments.any? %>
+  <h2>Departments:</h2>
+  <ul>
+    <% @college.departments.each do |department| %>
+      <li><b>Department Name:</b> <%= department.name %> - <%= department.location %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No departments found for this college.</p>
+<% end %>
+
+<% if @college.laboratories.any? %>
+  <h2>Laboratories:</h2>
+  <ul>
+    <% @college.laboratories.each do |lab| %>
+      <li><b>Laboratory Name:</b> <%= lab.name %> - <%= lab.location %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No laboratories found for this college.</p>
+<% end %>
+
+<div>
+  <%= link_to "Back to colleges", colleges_path %>
+</div>
+
